@@ -1,0 +1,31 @@
+{
+  "name": "@reactivemarkets/platform-examples-node",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SDK Examples for the Reactive Markets Platform",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf lib",
+    "compile": "tsc -p tsconfig.json",
+    "start": "node ./lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactivemarkets/platform-js.git"
+  },
+  "keywords": [
+    "sdk"
+  ],
+  "author": "Reactive Markets",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/reactivemarkets/platform-js/issues"
+  },
+  "homepage": "https://github.com/reactivemarkets/platform-js#readme",
+  "dependencies": {
+    "@reactivemarkets/platform-sdk": "file:../sdk",
+    "ws": "^7.3.0",
+    "yargs": "^15.3.1"
+  }
+}
