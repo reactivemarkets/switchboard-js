@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# ignore mac files
+.DS_Store
+
+# Build output
+lib/

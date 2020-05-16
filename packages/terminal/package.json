@@ -1,0 +1,43 @@
+{
+  "name": "@reactivemarkets/platform-terminal",
+  "version": "0.1.0",
+  "description": "An interactive terminal for the Reactive Markets Platform",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "cli.js",
+    "lib"
+  ],
+  "bin": {
+    "reactive-terminal": "cli.js"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf lib",
+    "compile": "tsc -p tsconfig.json",
+    "start": "node ./lib/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactivemarkets/platform-js.git"
+  },
+  "keywords": [
+    "sdk",
+    "terminal"
+  ],
+  "author": "Reactive Markets",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/reactivemarkets/platform-js/issues"
+  },
+  "homepage": "https://github.com/reactivemarkets/platform-js#readme",
+  "dependencies": {
+    "@reactivemarkets/platform-sdk": "file:../sdk",
+    "blessed": "0.1.81",
+    "blessed-contrib": "4.8.20",
+    "colors": "^1.4.0",
+    "ws": "^7.3.0",
+    "yargs": "^15.3.1"
+  }
+}

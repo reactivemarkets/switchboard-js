@@ -1,0 +1,27 @@
+{
+  "npmClient": "npm",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.0",
+  "command": {
+    "bootstrap": {
+      "hoist": true
+    },
+    "version": {
+      "allowBranch": "master",
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "gitRemote": "origin",
+      "message": "chore(release): publish %v"
+    }
+  },
+  "ignoreChanges": [
+    ".dependabot/",
+    ".github/",
+    ".vscode/",
+    "**/__tests__/**",
+    "**/*.md"
+  ]
+}

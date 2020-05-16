@@ -1,0 +1,40 @@
+{
+  "name": "@reactivemarkets/platform-sdk",
+  "version": "0.1.0",
+  "description": "SDK for the Reactive Markets Platform",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf lib coverage",
+    "compile": "tsc -p tsconfig.json",
+    "test": "jest",
+    "watch": "tsc -p tsconfig.json --watch --preserveWatchOutput"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactivemarkets/platform-js.git"
+  },
+  "keywords": [
+    "sdk"
+  ],
+  "author": "Reactive Markets",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/reactivemarkets/platform-js/issues"
+  },
+  "homepage": "https://github.com/reactivemarkets/platform-js#readme",
+  "dependencies": {
+    "@reactivemarkets/platform-api": "^0.7.0",
+    "flatbuffers": "^1.12.0",
+    "long": "^4.0.0",
+    "reconnecting-websocket": "^4.4.0",
+    "tiny-typed-emitter": "^2.0.1"
+  }
+}
