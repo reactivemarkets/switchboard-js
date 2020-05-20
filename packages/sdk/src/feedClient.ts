@@ -30,7 +30,7 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             WebSocketCtor,
         } = options;
 
-        this.websocket = new WebSocket(`${feedUrl}?token=${apiKey}`, [], {
+        this.websocket = new WebSocket(`${feedUrl}?api_key=${apiKey}`, [], {
             WebSocket: WebSocketCtor,
         });
         this.websocket.onopen = this.onOpen;
