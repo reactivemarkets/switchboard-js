@@ -4,7 +4,7 @@ The Reactive Platform SDK for JavaScript. See [Developer Docs](https://reactivem
 
 ## Quick Start
 
-```JavaScript
+```js
 import { FeedClient } from "@reactivemarkets/platform-sdk";
 
 const feedClient = new FeedClient({
