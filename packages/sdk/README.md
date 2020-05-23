@@ -1,11 +1,11 @@
 # Reactive Platform JavaScript SDK
 
-The Reactive Platform SDK for JavaScript. See [Developer Docs](https://reactivemarkets.github.io/developer/) for full documentation
+The Reactive Platform SDK for JavaScript. See [Developer Docs](https://developer.reactivemarkets.com) for full documentation
 
 ## Quick Start
 
 ```js
-import { FeedClient } from "@reactivemarkets/platform-sdk";
+import { FeedClient, toJS } from "@reactivemarkets/platform-sdk";
 
 const feedClient = new FeedClient({
     apiKey: MY_API_KEY,

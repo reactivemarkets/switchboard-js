@@ -5,12 +5,12 @@ The Reactive Platform SDK and examples for JavaScript.
 * See [Browser](./packages/examples-browser/src/index.tsx) for browser example.
 * See [Node](./packages/examples-node/src/index.ts) for node example.
 * See [Terminal](./packages/terminal/README.md) for an example terminal application.
-* See [Developer Docs](https://reactivemarkets.github.io/developer/) for full documentation.
+* See [Developer Docs](https://developer.reactivemarkets.com) for full documentation.
 
 ## Quick Start
 
 ```js
-import { FeedClient } from "@reactivemarkets/platform-sdk";
+import { FeedClient, toJS } from "@reactivemarkets/platform-sdk";
 
 const feedClient = new FeedClient({
     apiKey: MY_API_KEY,
