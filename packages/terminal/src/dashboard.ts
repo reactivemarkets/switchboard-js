@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import * as blessed from "blessed";
 import * as contrib from "blessed-contrib";
 import * as colors from "colors/safe";
