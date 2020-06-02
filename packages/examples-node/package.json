@@ -1,6 +1,6 @@
 {
   "name": "@reactivemarkets/platform-examples-node",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "SDK Examples for the Reactive Markets Platform",
   "main": "lib/index.js",

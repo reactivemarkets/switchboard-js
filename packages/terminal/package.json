@@ -1,6 +1,6 @@
 {
   "name": "@reactivemarkets/platform-terminal",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "An interactive terminal for the Reactive Markets Platform",
   "publishConfig": {
     "access": "public"
