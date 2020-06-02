@@ -39,24 +39,40 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
         this.websocket.onmessage = this.onMessage;
     }
 
+    /**
+     * Subscribe to a market data feed with the given options.
+     * @param options subscription options
+     */
     public subscribeMarketData(options: IMarketDataSubscription) {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).subscribe().build();
 
         this.websocket.send(bytes);
     }
 
+    /**
+     * Unsubscribe from a market data feed.
+     * @param options subscription options
+     */
     public unsubscribeMarketData(options: IMarketDataSubscription) {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).unsubscribe().build();
 
         this.websocket.send(bytes);
     }
 
+    /**
+     * Subscribe to a public trade feed with the given options.
+     * @param options subscription options
+     */
     public subscribeTrades(options: IPublicTradeSubscription) {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).trades().subscribe().build();
 
         this.websocket.send(bytes);
     }
 
+    /**
+     * Unsubscribe from a public trade feed.
+     * @param options subscription options
+     */
     public unsubscribeTrades(options: IPublicTradeSubscription) {
         const bytes = feedRequest()
             .markets(options.markets)
