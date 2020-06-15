@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/reactivemarkets/platform-js/compare/v0.2.3...v0.2.4) (2020-06-15)
+
+**Note:** Version bump only for package root
+
+
+
+
+
 ## [0.2.3](https://github.com/reactivemarkets/platform-js/compare/v0.2.2...v0.2.3) (2020-06-02)
 
 **Note:** Version bump only for package root
