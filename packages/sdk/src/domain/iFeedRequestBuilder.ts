@@ -26,6 +26,11 @@ export interface IFeedRequestBuilder {
     grouping(grouping?: number): IFeedRequestBuilder;
 
     /**
+     * Specifty the request is for liquidations.
+     */
+    liquidations(): IFeedRequestBuilder;
+
+    /**
      * Specify the markets this request applies to.
      * @param markets The set of markets.
      */

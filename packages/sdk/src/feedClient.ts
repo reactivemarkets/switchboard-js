@@ -6,10 +6,12 @@ import { feedRequest } from "./domain";
 import { IFeedClientOptions } from "./iFeedClientOptions";
 import { IPublicTradeSubscription } from "./iPublicTradeSubscription";
 import { IMarketDataSubscription } from "./iMarketDataSubscription";
+import { ILiquidationSubcription } from "./iLiquidationSubscription";
 
 interface IFeedClientEvents {
     close: (code: number, reason: string) => void;
     error: (err: Error) => void;
+    "liquidation-order": (liquidation: PlatformApi.LiquidationOrder) => void;
     "md-snapshot-l2": (snapshot: PlatformApi.MDSnapshotL2) => void;
     open: () => void;
     "public-trade": (trade: PlatformApi.PublicTrade) => void;
@@ -25,13 +27,15 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
         super();
 
         const {
-            feedUrl = "wss://api.platform.reactivemarkets.com/feed",
             apiKey = process.env.REACTIVE_PLATFORM_API_KEY,
+            feedUrl = "wss://api.platform.reactivemarkets.com/feed",
             WebSocketCtor,
+            ...rest
         } = options;
 
         this.websocket = new WebSocket(`${feedUrl}?api_key=${apiKey}`, [], {
             WebSocket: WebSocketCtor,
+            ...rest,
         });
         this.websocket.onopen = this.onOpen;
         this.websocket.onclose = this.onClose;
@@ -50,11 +54,16 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
     }
 
     /**
-     * Unsubscribe from a market data feed.
+     * Subscribe to a liquidations feed with the given options.
      * @param options subscription options
      */
-    public unsubscribeMarketData(options: IMarketDataSubscription) {
-        const bytes = feedRequest().markets(options.markets).requestId(options.requestId).unsubscribe().build();
+    public subscribeLiquidations(options: ILiquidationSubcription) {
+        const bytes = feedRequest()
+            .markets(options.markets)
+            .requestId(options.requestId)
+            .liquidations()
+            .subscribe()
+            .build();
 
         this.websocket.send(bytes);
     }
@@ -65,6 +74,31 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
      */
     public subscribeTrades(options: IPublicTradeSubscription) {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).trades().subscribe().build();
+
+        this.websocket.send(bytes);
+    }
+
+    /**
+     * Unsubscribe from a market data feed.
+     * @param options subscription options
+     */
+    public unsubscribeMarketData(options: IMarketDataSubscription) {
+        const bytes = feedRequest().markets(options.markets).requestId(options.requestId).unsubscribe().build();
+
+        this.websocket.send(bytes);
+    }
+
+    /**
+     * Unsubscribe from a liquidation feed.
+     * @param options subscription options
+     */
+    public unsubscribeLiquidations(options: ILiquidationSubcription) {
+        const bytes = feedRequest()
+            .markets(options.markets)
+            .requestId(options.requestId)
+            .liquidations()
+            .unsubscribe()
+            .build();
 
         this.websocket.send(bytes);
     }
@@ -119,6 +153,13 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
                 const body = message.body(new PlatformApi.FeedRequestReject());
                 if (body !== null) {
                     this.emit("request-rejected", body);
+                }
+                break;
+            }
+            case PlatformApi.Body.LiquidationOrder: {
+                const body = message.body(new PlatformApi.LiquidationOrder());
+                if (body !== null) {
+                    this.emit("liquidation-order", body);
                 }
                 break;
             }

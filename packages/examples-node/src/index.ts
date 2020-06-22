@@ -31,8 +31,13 @@ feedClient
 
         console.log(`Rejected: ${reqId} ${errorCode} ${errorMessage}`);
     })
+    .on("liquidation-order", (liquidation) => {
+        const { market, price, qty, side } = toJS(liquidation);
+
+        console.log(`Liquidation: ${side} ${market} ${price} ${qty}`);
+    })
     .on("md-snapshot-l2", (snapshot) => {
-        console.log(toJS(snapshot));
+        console.table(toJS(snapshot));
     })
     .on("public-trade", (trade) => {
         const { execVenue, market, price, qty, side } = toJS(trade);
