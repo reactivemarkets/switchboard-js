@@ -55,6 +55,7 @@ export const toString = (flatbufferLong: flatbuffers.Long) => {
 type MessageType =
     | PlatformApi.FeedRequestAccept
     | PlatformApi.FeedRequestReject
+    | PlatformApi.LiquidationOrder
     | PlatformApi.MDSnapshotL2
     | PlatformApi.PublicTrade
     | PlatformApi.SessionStatus;
@@ -63,6 +64,19 @@ export function toJS(message: PlatformApi.FeedRequestAccept): { feedId: number; 
 export function toJS(
     message: PlatformApi.FeedRequestReject,
 ): { errorCode: number; errorMessage: string; reqId: string };
+export function toJS(
+    message: PlatformApi.LiquidationOrder,
+): {
+    feedId: number;
+    flags: number;
+    market: string;
+    orderId: string;
+    price: number;
+    qty: number;
+    side: "buy" | "sell";
+    source: string;
+    sourceTs: Date;
+};
 export function toJS(
     message: PlatformApi.MDSnapshotL2,
 ): {
@@ -118,6 +132,18 @@ export function toJS(message: MessageType) {
             source: message.source(),
             sourceTs: toDate(message.sourceTs()),
             tradeId: message.tradeId(),
+        };
+    } else if ("orderId" in message) {
+        return {
+            feedId: message.feedId(),
+            flags: message.flags(),
+            market: message.market(),
+            orderId: message.orderId(),
+            price: message.price(),
+            qty: message.qty(),
+            side: toSide(message.side()),
+            source: message.source(),
+            sourceTs: toDate(message.sourceTs()),
         };
     } else if ("errorCode" in message) {
         return {

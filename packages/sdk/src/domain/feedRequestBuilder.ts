@@ -29,6 +29,11 @@ export class FeedRequestBuilder implements IFeedRequestBuilder {
         return this;
     }
 
+    public liquidations() {
+        this.#feedType = enums.FeedType.Liquidation;
+        return this;
+    }
+
     public markets(markets: string[]) {
         this.#markets = markets;
         return this;
