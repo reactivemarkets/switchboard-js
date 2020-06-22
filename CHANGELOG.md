@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/reactivemarkets/platform-js/compare/v0.2.4...v0.3.0) (2020-06-22)
+
+
+### Features
+
+* **sdk:** adding liquidation order to sdk ([4eec86b](https://github.com/reactivemarkets/platform-js/commit/4eec86bc008ad0fb547ed9bc0b2dd8f2427c86ca))
+
+
+
+
+
 ## [0.2.4](https://github.com/reactivemarkets/platform-js/compare/v0.2.3...v0.2.4) (2020-06-15)
 
 **Note:** Version bump only for package root
