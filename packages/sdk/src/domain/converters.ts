@@ -67,6 +67,7 @@ export function toJS(
 export function toJS(
     message: PlatformApi.LiquidationOrder,
 ): {
+    execVenue: string;
     feedId: number;
     flags: number;
     market: string;
@@ -135,6 +136,7 @@ export function toJS(message: MessageType) {
         };
     } else if ("orderId" in message) {
         return {
+            execVenue: message.execVenue(),
             feedId: message.feedId(),
             flags: message.flags(),
             market: message.market(),
