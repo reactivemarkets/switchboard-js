@@ -26,6 +26,6 @@
   "dependencies": {
     "@reactivemarkets/platform-sdk": "file:../sdk",
     "ws": "^7.3.1",
-    "yargs": "^15.3.1"
+    "yargs": "^15.4.0"
   }
 }
