@@ -7,7 +7,7 @@ export interface IMarketDataSubscription extends ISubscription {
     readonly depth?: number;
 
     /**
-     * The frequency of updates.
+     * The frequency of updates in milliseconds.
      */
     readonly frequency?: number;
 
