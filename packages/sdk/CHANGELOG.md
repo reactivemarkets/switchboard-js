@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/reactivemarkets/platform-js/compare/v0.3.0...v0.3.1) (2020-07-12)
+
+
+### Bug Fixes
+
+* **sdk:** disable source map and keep comments ([6a860a6](https://github.com/reactivemarkets/platform-js/commit/6a860a6b7d101df8f8b3c5193bdce9fddb74d8a3))
+* **sdk:** removing depth, frequency and grouping from market data ([692789a](https://github.com/reactivemarkets/platform-js/commit/692789aa58a76f618c8733146cc202132b728b71))
+
+
+
+
+
 # [0.3.0](https://github.com/reactivemarkets/platform-js/compare/v0.2.4...v0.3.0) (2020-06-22)
 
 
