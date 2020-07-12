@@ -37,6 +37,7 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             WebSocket: WebSocketCtor,
             ...rest,
         });
+        this.websocket.binaryType = "arraybuffer";
         this.websocket.onopen = this.onOpen;
         this.websocket.onclose = this.onClose;
         this.websocket.onerror = this.onError;
@@ -47,7 +48,7 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
      * Subscribe to a market data feed with the given options.
      * @param options subscription options
      */
-    public subscribeMarketData(options: IMarketDataSubscription) {
+    public subscribeMarketData = (options: IMarketDataSubscription) => {
         const bytes = feedRequest()
             .markets(options.markets)
             .frequency(options.frequency)
@@ -57,13 +58,13 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             .build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     /**
      * Subscribe to a liquidations feed with the given options.
      * @param options subscription options
      */
-    public subscribeLiquidations(options: ILiquidationSubcription) {
+    public subscribeLiquidations = (options: ILiquidationSubcription) => {
         const bytes = feedRequest()
             .markets(options.markets)
             .requestId(options.requestId)
@@ -72,33 +73,33 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             .build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     /**
      * Subscribe to a public trade feed with the given options.
      * @param options subscription options
      */
-    public subscribeTrades(options: IPublicTradeSubscription) {
+    public subscribeTrades = (options: IPublicTradeSubscription) => {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).trades().subscribe().build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     /**
      * Unsubscribe from a market data feed.
      * @param options subscription options
      */
-    public unsubscribeMarketData(options: Omit<IMarketDataSubscription, "depth" | "frequency" | "grouping">) {
+    public unsubscribeMarketData = (options: Omit<IMarketDataSubscription, "depth" | "frequency" | "grouping">) => {
         const bytes = feedRequest().markets(options.markets).requestId(options.requestId).unsubscribe().build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     /**
      * Unsubscribe from a liquidation feed.
      * @param options subscription options
      */
-    public unsubscribeLiquidations(options: ILiquidationSubcription) {
+    public unsubscribeLiquidations = (options: ILiquidationSubcription) => {
         const bytes = feedRequest()
             .markets(options.markets)
             .requestId(options.requestId)
@@ -107,13 +108,13 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             .build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     /**
      * Unsubscribe from a public trade feed.
      * @param options subscription options
      */
-    public unsubscribeTrades(options: IPublicTradeSubscription) {
+    public unsubscribeTrades = (options: IPublicTradeSubscription) => {
         const bytes = feedRequest()
             .markets(options.markets)
             .requestId(options.requestId)
@@ -122,7 +123,7 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
             .build();
 
         this.websocket.send(bytes);
-    }
+    };
 
     private onClose = (event: CloseEvent) => {
         this.emit("close", event.code, event.reason);
