@@ -48,7 +48,13 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
      * @param options subscription options
      */
     public subscribeMarketData(options: IMarketDataSubscription) {
-        const bytes = feedRequest().markets(options.markets).requestId(options.requestId).subscribe().build();
+        const bytes = feedRequest()
+            .markets(options.markets)
+            .frequency(options.frequency)
+            .depth(options.depth)
+            .requestId(options.requestId)
+            .subscribe()
+            .build();
 
         this.websocket.send(bytes);
     }
