@@ -16,8 +16,10 @@
     "lint:fix": "eslint . --ext ts --ext tsx --quiet --fix",
     "test": "lerna run test --stream",
     "prepublishOnly": "npm run build",
-    "publish": "lerna publish from-package --no-git-reset --yes",
+    "publish": "lerna publish from-package --yes",
     "release": "lerna version --yes",
+    "release:pre": "lerna version --conventional-prerelease --yes",
+    "release:grad": "lerna version --conventional-graduate --yes",
     "start:browser": "lerna run start --scope='*/*-browser' --stream",
     "start:node": "node -r dotenv/config ./packages/examples-node/lib/index.js",
     "start:terminal": "node -r dotenv/config ./packages/terminal/lib/index.js"
