@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/reactivemarkets/platform-js/compare/v0.3.5...v0.4.0) (2020-08-20)
+
+
+### Features
+
+* **sdk:** adding isOpen property to FeedClient ([07962ba](https://github.com/reactivemarkets/platform-js/commit/07962ba41c49aeb1d987595e0723f13562b62247))
+
+
+
+
+
 ## [0.3.5](https://github.com/reactivemarkets/platform-js/compare/v0.3.4...v0.3.5) (2020-08-12)
 
 **Note:** Version bump only for package root
