@@ -45,6 +45,13 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
     }
 
     /**
+     * Indicates if the connection is open and ready to communicate.
+     */
+    public get isOpen() {
+        return this.websocket.readyState === this.websocket.OPEN;
+    }
+
+    /**
      * Subscribe to a market data feed with the given options.
      * @param options subscription options
      */
