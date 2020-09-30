@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/reactivemarkets/platform-js/compare/v0.4.1...v0.5.0) (2020-09-30)
+
+**Note:** Version bump only for package @reactivemarkets/platform-examples-node
+
+
+
+
+
 ## [0.4.1](https://github.com/reactivemarkets/platform-js/compare/v0.4.0...v0.4.1) (2020-09-22)
 
 **Note:** Version bump only for package @reactivemarkets/platform-examples-node
