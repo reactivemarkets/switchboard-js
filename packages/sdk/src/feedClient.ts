@@ -46,6 +46,8 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
 
     /**
      * Indicates if the connection is open and ready to communicate.
+     *
+     * @readonly
      */
     public get isOpen() {
         return this.websocket.readyState === this.websocket.OPEN;

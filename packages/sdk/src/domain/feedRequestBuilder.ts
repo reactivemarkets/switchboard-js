@@ -9,10 +9,10 @@ export class FeedRequestBuilder implements IFeedRequestBuilder {
     #feedType?: enums.FeedType;
     #frequency?: number;
     #grouping?: number;
-    #markets?: string[];
+    #markets?: readonly string[];
     #requestId?: string;
     #subRequestType?: enums.SubReqType;
-    private readonly builder = new flatbuffers.Builder();
+    #builder = new flatbuffers.Builder();
 
     public depth(depth?: number) {
         this.#depth = depth;
@@ -34,7 +34,7 @@ export class FeedRequestBuilder implements IFeedRequestBuilder {
         return this;
     }
 
-    public markets(markets: string[]) {
+    public markets(markets: readonly string[]) {
         this.#markets = markets;
         return this;
     }
@@ -62,56 +62,56 @@ export class FeedRequestBuilder implements IFeedRequestBuilder {
     public build() {
         const nanos = Date.now() * 1e6;
         const { high, low } = fromNumber(nanos);
-        const tts = this.builder.createLong(low, high);
+        const tts = this.#builder.createLong(low, high);
         const depth = this.#depth;
         const feedType = this.#feedType;
         const frequency = this.#frequency;
         const feedRequestType = this.#subRequestType;
         const grouping = this.#grouping;
-        const requestId = this.#requestId ? this.builder.createString(this.#requestId) : undefined;
+        const requestId = this.#requestId ? this.#builder.createString(this.#requestId) : undefined;
 
         let markets;
         if (this.#markets !== undefined) {
             const marketOffsets = this.#markets.reduce<number[]>((previous, next) => {
-                const market = this.builder.createString(next);
+                const market = this.#builder.createString(next);
                 previous.push(market);
                 return previous;
             }, []);
-            markets = PlatformApi.FeedRequest.createMarketsVector(this.builder, marketOffsets);
+            markets = PlatformApi.FeedRequest.createMarketsVector(this.#builder, marketOffsets);
         }
 
-        PlatformApi.FeedRequest.start(this.builder);
+        PlatformApi.FeedRequest.start(this.#builder);
         if (requestId !== undefined) {
-            PlatformApi.FeedRequest.addReqId(this.builder, requestId);
+            PlatformApi.FeedRequest.addReqId(this.#builder, requestId);
         }
         if (feedRequestType !== undefined) {
-            PlatformApi.FeedRequest.addSubReqType(this.builder, feedRequestType);
+            PlatformApi.FeedRequest.addSubReqType(this.#builder, feedRequestType);
         }
         if (feedType !== undefined) {
-            PlatformApi.FeedRequest.addFeedType(this.builder, feedType);
+            PlatformApi.FeedRequest.addFeedType(this.#builder, feedType);
         }
         if (frequency !== undefined) {
-            PlatformApi.FeedRequest.addFrequency(this.builder, frequency);
+            PlatformApi.FeedRequest.addFrequency(this.#builder, frequency);
         }
         if (grouping !== undefined) {
-            PlatformApi.FeedRequest.addGrouping(this.builder, grouping);
+            PlatformApi.FeedRequest.addGrouping(this.#builder, grouping);
         }
         if (markets !== undefined) {
-            PlatformApi.FeedRequest.addMarkets(this.builder, markets);
+            PlatformApi.FeedRequest.addMarkets(this.#builder, markets);
         }
         if (depth !== undefined) {
-            PlatformApi.FeedRequest.addDepth(this.builder, depth);
+            PlatformApi.FeedRequest.addDepth(this.#builder, depth);
         }
-        const feedRequest = PlatformApi.FeedRequest.end(this.builder);
+        const feedRequest = PlatformApi.FeedRequest.end(this.#builder);
 
-        PlatformApi.Message.start(this.builder);
-        PlatformApi.Message.addTts(this.builder, tts);
-        PlatformApi.Message.addBodyType(this.builder, PlatformApi.Body.FeedRequest);
-        PlatformApi.Message.addBody(this.builder, feedRequest);
-        const message = PlatformApi.Message.end(this.builder);
+        PlatformApi.Message.start(this.#builder);
+        PlatformApi.Message.addTts(this.#builder, tts);
+        PlatformApi.Message.addBodyType(this.#builder, PlatformApi.Body.FeedRequest);
+        PlatformApi.Message.addBody(this.#builder, feedRequest);
+        const message = PlatformApi.Message.end(this.#builder);
 
-        this.builder.finish(message);
+        this.#builder.finish(message);
 
-        return this.builder.asUint8Array();
+        return this.#builder.asUint8Array();
     }
 }
