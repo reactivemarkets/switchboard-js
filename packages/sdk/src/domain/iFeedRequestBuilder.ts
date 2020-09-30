@@ -34,7 +34,7 @@ export interface IFeedRequestBuilder {
      * Specify the markets this request applies to.
      * @param markets The set of markets.
      */
-    markets(markets: string[]): IFeedRequestBuilder;
+    markets(markets: readonly string[]): IFeedRequestBuilder;
 
     /**
      * Specify a client request id.
