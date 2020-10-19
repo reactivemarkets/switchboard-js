@@ -98,8 +98,14 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
      * Unsubscribe from a market data feed.
      * @param options subscription options
      */
-    public unsubscribeMarketData = (options: Omit<IMarketDataSubscription, "depth" | "frequency" | "grouping">) => {
-        const bytes = feedRequest().markets(options.markets).requestId(options.requestId).unsubscribe().build();
+    public unsubscribeMarketData = (options: Omit<IMarketDataSubscription, "grouping">) => {
+        const bytes = feedRequest()
+            .markets(options.markets)
+            .frequency(options.frequency)
+            .depth(options.depth)
+            .requestId(options.requestId)
+            .unsubscribe()
+            .build();
 
         this.websocket.send(bytes);
     };
