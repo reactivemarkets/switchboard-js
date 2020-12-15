@@ -152,8 +152,8 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
         this.emit("open");
     };
 
-    private onMessage = (event: MessageEvent) => {
-        const byteBuffer = event.data as ArrayBuffer;
+    private onMessage = (event: MessageEvent<ArrayBuffer>) => {
+        const byteBuffer = event.data;
 
         const bytes = new Uint8Array(byteBuffer);
 
