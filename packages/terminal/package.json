@@ -35,7 +35,7 @@
   "dependencies": {
     "@reactivemarkets/platform-sdk": "file:../sdk",
     "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.20",
+    "blessed-contrib": "^4.8.21",
     "colors": "^1.4.0",
     "ws": "^7.4.2",
     "yargs": "^16.2.0"
