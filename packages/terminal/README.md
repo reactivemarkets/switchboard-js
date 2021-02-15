@@ -10,18 +10,18 @@ An example terminal application connecting to the Reactive Switchboard. It displ
 npm i -g @reactivemarkets/switchboard-terminal
 ```
 
-You need to give the terminal an api key to connect. You can either set an environment variable `REACTIVE_PLATFORM_API_KEY` or pass in via the command line arg `api-key`.
+You need to give the terminal an api key to connect. You can either set an environment variable `SWITCHBOARD_API_KEY` or pass in via the command line arg `api-key`.
 
 To run with an environment variable:
 
 ```bash
-reactive-terminal
+switchboard-terminal
 ```
 
 or with an api key:
 
 ```bash
-reactive-terminal --api-key MY_API_KEY
+switchboard-terminal --api-key MY_API_KEY
 ```
 
 ## Command Line Usage
@@ -29,7 +29,7 @@ reactive-terminal --api-key MY_API_KEY
 For a full list of commands see the built in help:
 
 ```bash
-reactive-terminal --help
+switchboard-terminal --help
 ```
 
 ## Building
