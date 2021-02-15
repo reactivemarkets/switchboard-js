@@ -1,6 +1,6 @@
 {
   "name": "@reactivemarkets/switchboard-terminal",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "An interactive terminal for the Reactive Markets Switchboard",
   "publishConfig": {
     "access": "public"
