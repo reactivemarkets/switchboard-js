@@ -18,7 +18,7 @@ class Dashboard {
     #table: contrib.Widgets.TableElement;
     #timeout: NodeJS.Timeout;
 
-    public constructor({ refresh = 1_000, title = "Reactive Markets Switchboard" }: IDashboardOptions = {}) {
+    public constructor({ refresh = 1_000, title = "Switchboard | Reactive Markets" }: IDashboardOptions = {}) {
         this.#screen = blessed.screen({
             title,
         });

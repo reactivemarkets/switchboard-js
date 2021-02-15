@@ -2,7 +2,7 @@ import * as yargs from "yargs";
 
 export const parseCommandLine = (commandLine: string[]) => {
     return yargs
-        .env("REACTIVE_PLATFORM")
+        .env("SWITCHBOARD")
         .config()
         .option("api-key", {
             description: "The switchboard API key",

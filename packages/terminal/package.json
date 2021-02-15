@@ -10,7 +10,7 @@
     "lib"
   ],
   "bin": {
-    "reactive-terminal": "cli.js"
+    "switchboard-terminal": "cli.js"
   },
   "scripts": {
     "build": "npm run clean && npm run compile",
