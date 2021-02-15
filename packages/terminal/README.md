@@ -2,7 +2,7 @@
 
 An example terminal application connecting to the Reactive Platform. It displays the order book, public trades and the bid/offer spread.
 
-![Terminal](https://raw.githubusercontent.com/reactivemarkets/platform-js/master/packages/terminal/terminal.gif)
+![Terminal](https://raw.githubusercontent.com/reactivemarkets/platform-js/main/packages/terminal/terminal.gif)
 
 ## Quick Start
 
