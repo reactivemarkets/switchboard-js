@@ -28,7 +28,7 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
 
         const {
             apiKey = process.env.REACTIVE_PLATFORM_API_KEY,
-            feedUrl = "wss://api.platform.reactivemarkets.com/feed",
+            feedUrl = "wss://api.switchboard.reactivemarkets.com/feed",
             WebSocketCtor,
             ...rest
         } = options;

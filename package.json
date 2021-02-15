@@ -60,9 +60,9 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@reactivemarkets/platform-examples-browser": "file:packages/examples-browser",
-    "@reactivemarkets/platform-examples-node": "file:packages/examples-node",
-    "@reactivemarkets/platform-sdk": "file:packages/sdk",
-    "@reactivemarkets/platform-terminal": "file:packages/terminal"
+    "@reactivemarkets/switchboard-examples-browser": "file:packages/examples-browser",
+    "@reactivemarkets/switchboard-examples-node": "file:packages/examples-node",
+    "@reactivemarkets/switchboard-sdk": "file:packages/sdk",
+    "@reactivemarkets/switchboard-terminal": "file:packages/terminal"
   }
 }

@@ -1,13 +1,13 @@
-# Reactive Platform Terminal
+# Reactive Switchboard Terminal
 
-An example terminal application connecting to the Reactive Platform. It displays the order book, public trades and the bid/offer spread.
+An example terminal application connecting to the Reactive Switchboard. It displays the order book, public trades and the bid/offer spread.
 
-![Terminal](https://raw.githubusercontent.com/reactivemarkets/platform-js/main/packages/terminal/terminal.gif)
+![Terminal](https://raw.githubusercontent.com/reactivemarkets/switchboard-js/main/packages/terminal/terminal.gif)
 
 ## Quick Start
 
 ```bash
-npm i -g @reactivemarkets/platform-terminal
+npm i -g @reactivemarkets/switchboard-terminal
 ```
 
 You need to give the terminal an api key to connect. You can either set an environment variable `REACTIVE_PLATFORM_API_KEY` or pass in via the command line arg `api-key`.
@@ -37,8 +37,8 @@ reactive-terminal --help
 To install all dependencies and build run:
 
 ```bash
-git clone https://github.com/reactivemarkets/platform-js.git
-cd platform-js
+git clone https://github.com/reactivemarkets/switchboard-js.git
+cd switchboard-js
 npm ci
 npm run build
 ```
@@ -46,7 +46,7 @@ npm run build
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on
-this repository](https://github.com/reactivemarkets/platform-js/tags).
+this repository](https://github.com/reactivemarkets/switchboard-js/tags).
 
 ## License
 

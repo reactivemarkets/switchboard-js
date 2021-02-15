@@ -5,7 +5,7 @@ export const parseCommandLine = (commandLine: string[]) => {
         .env("REACTIVE_PLATFORM")
         .config()
         .option("api-key", {
-            description: "The platform API key",
+            description: "The switchboard API key",
             string: true,
         })
         .option("markets", {
