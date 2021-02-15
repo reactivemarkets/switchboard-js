@@ -1,8 +1,8 @@
-import { PlatformApi } from "@reactivemarkets/platform-api";
-import { PlatformApi as enums } from "@reactivemarkets/platform-api/js/Enum_generated";
+import { Switchboard } from "@reactivemarkets/switchboard-api";
+import { Switchboard as enums } from "@reactivemarkets/switchboard-api/lib/Enum_generated";
 import { default as NewLong } from "long";
 
-export const toBidMap = (snapshot: PlatformApi.MDSnapshotL2) => {
+export const toBidMap = (snapshot: Switchboard.MDSnapshotL2) => {
     const map = new Map<number, number[]>();
     for (let i = 0; i < snapshot.bidSideLength(); i++) {
         const side = snapshot.bidSide(i);
@@ -16,7 +16,7 @@ export const toBidMap = (snapshot: PlatformApi.MDSnapshotL2) => {
     return map;
 };
 
-export const toOfferMap = (snapshot: PlatformApi.MDSnapshotL2) => {
+export const toOfferMap = (snapshot: Switchboard.MDSnapshotL2) => {
     const map = new Map<number, number[]>();
     for (let i = 0; i < snapshot.offerSideLength(); i++) {
         const side = snapshot.offerSide(i);
@@ -53,19 +53,19 @@ export const toString = (flatbufferLong: flatbuffers.Long) => {
 };
 
 type MessageType =
-    | PlatformApi.FeedRequestAccept
-    | PlatformApi.FeedRequestReject
-    | PlatformApi.LiquidationOrder
-    | PlatformApi.MDSnapshotL2
-    | PlatformApi.PublicTrade
-    | PlatformApi.SessionStatus;
+    | Switchboard.FeedRequestAccept
+    | Switchboard.FeedRequestReject
+    | Switchboard.LiquidationOrder
+    | Switchboard.MDSnapshotL2
+    | Switchboard.PublicTrade
+    | Switchboard.SessionStatus;
 
-export function toJS(message: PlatformApi.FeedRequestAccept): { feedId: number; reqId: string };
+export function toJS(message: Switchboard.FeedRequestAccept): { feedId: number; reqId: string };
 export function toJS(
-    message: PlatformApi.FeedRequestReject,
+    message: Switchboard.FeedRequestReject,
 ): { errorCode: number; errorMessage: string; reqId: string };
 export function toJS(
-    message: PlatformApi.LiquidationOrder,
+    message: Switchboard.LiquidationOrder,
 ): {
     execVenue: string;
     feedId: number;
@@ -79,7 +79,7 @@ export function toJS(
     sourceTs: Date;
 };
 export function toJS(
-    message: PlatformApi.MDSnapshotL2,
+    message: Switchboard.MDSnapshotL2,
 ): {
     bid: Map<number, number[]>;
     depth: number;
@@ -92,7 +92,7 @@ export function toJS(
     sourceTs: Date;
 };
 export function toJS(
-    message: PlatformApi.PublicTrade,
+    message: Switchboard.PublicTrade,
 ): {
     execVenue: string;
     feedId: number;
@@ -106,7 +106,7 @@ export function toJS(
     tradeId: string;
 };
 export function toJS(
-    message: PlatformApi.SessionStatus,
+    message: Switchboard.SessionStatus,
 ): { code: number; message: string; source: string; sourceTs: Date };
 export function toJS(message: MessageType) {
     if ("depth" in message) {
