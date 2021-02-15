@@ -1,4 +1,4 @@
-import { PlatformApi } from "@reactivemarkets/platform-api";
+import { Switchboard } from "@reactivemarkets/switchboard-api";
 import { flatbuffers } from "flatbuffers";
 import { TypedEmitter } from "tiny-typed-emitter";
 import WebSocket, { CloseEvent, ErrorEvent } from "reconnecting-websocket";
@@ -11,13 +11,13 @@ import { ILiquidationSubcription } from "./iLiquidationSubscription";
 interface IFeedClientEvents {
     close: (code: number, reason: string) => void;
     error: (err: Error) => void;
-    "liquidation-order": (liquidation: PlatformApi.LiquidationOrder) => void;
-    "md-snapshot-l2": (snapshot: PlatformApi.MDSnapshotL2) => void;
+    "liquidation-order": (liquidation: Switchboard.LiquidationOrder) => void;
+    "md-snapshot-l2": (snapshot: Switchboard.MDSnapshotL2) => void;
     open: () => void;
-    "public-trade": (trade: PlatformApi.PublicTrade) => void;
-    "request-accepted": (accept: PlatformApi.FeedRequestAccept) => void;
-    "request-rejected": (reject: PlatformApi.FeedRequestReject) => void;
-    "session-status": (status: PlatformApi.SessionStatus) => void;
+    "public-trade": (trade: Switchboard.PublicTrade) => void;
+    "request-accepted": (accept: Switchboard.FeedRequestAccept) => void;
+    "request-rejected": (reject: Switchboard.FeedRequestReject) => void;
+    "session-status": (status: Switchboard.SessionStatus) => void;
 }
 
 export class FeedClient extends TypedEmitter<IFeedClientEvents> {
@@ -159,48 +159,48 @@ export class FeedClient extends TypedEmitter<IFeedClientEvents> {
 
         const buffer = new flatbuffers.ByteBuffer(bytes);
 
-        const message = PlatformApi.Message.getRoot(buffer);
+        const message = Switchboard.Message.getRoot(buffer);
 
         const bodyType = message.bodyType();
 
         switch (bodyType) {
-            case PlatformApi.Body.FeedRequestAccept: {
-                const body = message.body(new PlatformApi.FeedRequestAccept());
+            case Switchboard.Body.FeedRequestAccept: {
+                const body = message.body(new Switchboard.FeedRequestAccept());
                 if (body !== null) {
                     this.emit("request-accepted", body);
                 }
                 break;
             }
-            case PlatformApi.Body.FeedRequestReject: {
-                const body = message.body(new PlatformApi.FeedRequestReject());
+            case Switchboard.Body.FeedRequestReject: {
+                const body = message.body(new Switchboard.FeedRequestReject());
                 if (body !== null) {
                     this.emit("request-rejected", body);
                 }
                 break;
             }
-            case PlatformApi.Body.LiquidationOrder: {
-                const body = message.body(new PlatformApi.LiquidationOrder());
+            case Switchboard.Body.LiquidationOrder: {
+                const body = message.body(new Switchboard.LiquidationOrder());
                 if (body !== null) {
                     this.emit("liquidation-order", body);
                 }
                 break;
             }
-            case PlatformApi.Body.MDSnapshotL2: {
-                const body = message.body(new PlatformApi.MDSnapshotL2());
+            case Switchboard.Body.MDSnapshotL2: {
+                const body = message.body(new Switchboard.MDSnapshotL2());
                 if (body !== null) {
                     this.emit("md-snapshot-l2", body);
                 }
                 break;
             }
-            case PlatformApi.Body.PublicTrade: {
-                const body = message.body(new PlatformApi.PublicTrade());
+            case Switchboard.Body.PublicTrade: {
+                const body = message.body(new Switchboard.PublicTrade());
                 if (body !== null) {
                     this.emit("public-trade", body);
                 }
                 break;
             }
-            case PlatformApi.Body.SessionStatus: {
-                const body = message.body(new PlatformApi.SessionStatus());
+            case Switchboard.Body.SessionStatus: {
+                const body = message.body(new Switchboard.SessionStatus());
                 if (body !== null) {
                     this.emit("session-status", body);
                 }

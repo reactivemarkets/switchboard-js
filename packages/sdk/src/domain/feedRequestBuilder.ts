@@ -1,5 +1,5 @@
-import { PlatformApi } from "@reactivemarkets/platform-api";
-import { PlatformApi as enums } from "@reactivemarkets/platform-api/js/Enum_generated";
+import { Switchboard } from "@reactivemarkets/switchboard-api";
+import { Switchboard as enums } from "@reactivemarkets/switchboard-api/lib/Enum_generated";
 import { flatbuffers } from "flatbuffers";
 import { fromNumber } from "long";
 import { IFeedRequestBuilder } from "./iFeedRequestBuilder";
@@ -77,38 +77,38 @@ export class FeedRequestBuilder implements IFeedRequestBuilder {
                 previous.push(market);
                 return previous;
             }, []);
-            markets = PlatformApi.FeedRequest.createMarketsVector(this.#builder, marketOffsets);
+            markets = Switchboard.FeedRequest.createMarketsVector(this.#builder, marketOffsets);
         }
 
-        PlatformApi.FeedRequest.start(this.#builder);
+        Switchboard.FeedRequest.start(this.#builder);
         if (requestId !== undefined) {
-            PlatformApi.FeedRequest.addReqId(this.#builder, requestId);
+            Switchboard.FeedRequest.addReqId(this.#builder, requestId);
         }
         if (feedRequestType !== undefined) {
-            PlatformApi.FeedRequest.addSubReqType(this.#builder, feedRequestType);
+            Switchboard.FeedRequest.addSubReqType(this.#builder, feedRequestType);
         }
         if (feedType !== undefined) {
-            PlatformApi.FeedRequest.addFeedType(this.#builder, feedType);
+            Switchboard.FeedRequest.addFeedType(this.#builder, feedType);
         }
         if (frequency !== undefined) {
-            PlatformApi.FeedRequest.addFrequency(this.#builder, frequency);
+            Switchboard.FeedRequest.addFrequency(this.#builder, frequency);
         }
         if (grouping !== undefined) {
-            PlatformApi.FeedRequest.addGrouping(this.#builder, grouping);
+            Switchboard.FeedRequest.addGrouping(this.#builder, grouping);
         }
         if (markets !== undefined) {
-            PlatformApi.FeedRequest.addMarkets(this.#builder, markets);
+            Switchboard.FeedRequest.addMarkets(this.#builder, markets);
         }
         if (depth !== undefined) {
-            PlatformApi.FeedRequest.addDepth(this.#builder, depth);
+            Switchboard.FeedRequest.addDepth(this.#builder, depth);
         }
-        const feedRequest = PlatformApi.FeedRequest.end(this.#builder);
+        const feedRequest = Switchboard.FeedRequest.end(this.#builder);
 
-        PlatformApi.Message.start(this.#builder);
-        PlatformApi.Message.addTts(this.#builder, tts);
-        PlatformApi.Message.addBodyType(this.#builder, PlatformApi.Body.FeedRequest);
-        PlatformApi.Message.addBody(this.#builder, feedRequest);
-        const message = PlatformApi.Message.end(this.#builder);
+        Switchboard.Message.start(this.#builder);
+        Switchboard.Message.addTts(this.#builder, tts);
+        Switchboard.Message.addBodyType(this.#builder, Switchboard.Body.FeedRequest);
+        Switchboard.Message.addBody(this.#builder, feedRequest);
+        const message = Switchboard.Message.end(this.#builder);
 
         this.#builder.finish(message);
 

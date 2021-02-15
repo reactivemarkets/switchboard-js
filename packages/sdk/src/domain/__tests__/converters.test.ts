@@ -1,4 +1,4 @@
-import { PlatformApi as enums } from "@reactivemarkets/platform-api/js/Enum_generated";
+import { Switchboard as enums } from "@reactivemarkets/switchboard-api/lib/Enum_generated";
 import { flatbuffers } from "flatbuffers";
 import { fromNumber } from "long";
 import { toSide, toDate } from "../converters";
