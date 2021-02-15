@@ -23,10 +23,10 @@ export interface IFeedClientOptions {
     readonly debug?: boolean;
 
     /**
-     * The url of the platform websocket feed.
+     * The url of the switchboard websocket feed.
      *
      * @readonly
-     * @default wss://api.platform.reactivemarkets.com/feed
+     * @default wss://api.switchboard.reactivemarkets.com/feed
      */
     readonly feedUrl?: string;
 

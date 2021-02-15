@@ -1,4 +1,4 @@
-import { FeedClient, toJS } from "@reactivemarkets/platform-sdk";
+import { FeedClient, toJS } from "@reactivemarkets/switchboard-sdk";
 import * as WebSocket from "ws";
 import { options } from "./options";
 

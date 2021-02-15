@@ -1,7 +1,7 @@
 {
-  "name": "@reactivemarkets/platform-sdk",
+  "name": "@reactivemarkets/switchboard-sdk",
   "version": "0.5.1",
-  "description": "SDK for the Reactive Markets Platform",
+  "description": "SDK for the Reactive Markets Switchboard",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "publishConfig": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactivemarkets/platform-js.git"
+    "url": "git+https://github.com/reactivemarkets/switchboard-js.git"
   },
   "keywords": [
     "sdk"
@@ -27,9 +27,9 @@
   "author": "Reactive Markets",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/reactivemarkets/platform-js/issues"
+    "url": "https://github.com/reactivemarkets/switchboard-js/issues"
   },
-  "homepage": "https://github.com/reactivemarkets/platform-js#readme",
+  "homepage": "https://github.com/reactivemarkets/switchboard-js#readme",
   "dependencies": {
     "@reactivemarkets/platform-api": "^1.2.0",
     "flatbuffers": "^1.12.0",

@@ -1,8 +1,8 @@
 {
-  "name": "@reactivemarkets/platform-examples-browser",
+  "name": "@reactivemarkets/switchboard-examples-browser",
   "version": "0.5.1",
   "private": true,
-  "description": "SDK Examples for the Reactive Markets Platform",
+  "description": "SDK Examples for the Reactive Markets Switchboard",
   "main": "lib/index.js",
   "scripts": {
     "build": "webpack --progress",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactivemarkets/platform-js.git"
+    "url": "git+https://github.com/reactivemarkets/switchboard-js.git"
   },
   "keywords": [
     "sdk"
@@ -20,11 +20,11 @@
   "author": "Reactive Markets",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/reactivemarkets/platform-js/issues"
+    "url": "https://github.com/reactivemarkets/switchboard-js/issues"
   },
-  "homepage": "https://github.com/reactivemarkets/platform-js#readme",
+  "homepage": "https://github.com/reactivemarkets/switchboard-js#readme",
   "dependencies": {
-    "@reactivemarkets/platform-sdk": "file:../sdk",
+    "@reactivemarkets/switchboard-sdk": "file:../sdk",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }

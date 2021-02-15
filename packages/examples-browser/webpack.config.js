@@ -66,7 +66,7 @@ module.exports = {
                 minifyURLs: true,
             },
             mobile: true,
-            title: "Reactive Platform SDK",
+            title: "Reactive Switchboard SDK",
         }),
     ],
 };

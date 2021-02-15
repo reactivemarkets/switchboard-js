@@ -1,11 +1,11 @@
-# Reactive Platform JavaScript SDK
+# Reactive Switchboard JavaScript SDK
 
-The Reactive Platform SDK for JavaScript. See [Developer Docs](https://developer.reactivemarkets.com) for full documentation
+The Reactive Switchboard SDK for JavaScript. See [Developer Docs](https://developer.reactivemarkets.com) for full documentation
 
 ## Quick Start
 
 ```js
-import { FeedClient, toJS } from "@reactivemarkets/platform-sdk";
+import { FeedClient, toJS } from "@reactivemarkets/switchboard-sdk";
 
 const feedClient = new FeedClient({
     apiKey: MY_API_KEY,
@@ -25,7 +25,7 @@ feedClient
 ## Installing
 
 ```bash
-npm i @reactivemarkets/platform-sdk
+npm i @reactivemarkets/switchboard-sdk
 ```
 
 ## Building
@@ -33,8 +33,8 @@ npm i @reactivemarkets/platform-sdk
 To install all dependencies and build run:
 
 ```bash
-git clone https://github.com/reactivemarkets/platform-js.git
-cd platform-js
+git clone https://github.com/reactivemarkets/switchboard-js.git
+cd switchboard-js
 npm ci
 npm run build
 ```
@@ -42,7 +42,7 @@ npm run build
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on
-this repository](https://github.com/reactivemarkets/platform-js/tags).
+this repository](https://github.com/reactivemarkets/switchboard-js/tags).
 
 ## License
 
