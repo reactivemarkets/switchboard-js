@@ -25,7 +25,7 @@
   "homepage": "https://github.com/reactivemarkets/switchboard-js#readme",
   "dependencies": {
     "@reactivemarkets/switchboard-sdk": "file:../sdk",
-    "ws": "^7.4.5",
+    "ws": "^7.4.6",
     "yargs": "^16.2.0"
   }
 }
