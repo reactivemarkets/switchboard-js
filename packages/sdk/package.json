@@ -32,7 +32,7 @@
   "homepage": "https://github.com/reactivemarkets/switchboard-js#readme",
   "dependencies": {
     "@reactivemarkets/switchboard-api": "^2.0.0",
-    "flatbuffers": "^1.12.0",
+    "flatbuffers": "^2.0.3",
     "long": "^4.0.0",
     "reconnecting-websocket": "^4.4.0",
     "tiny-typed-emitter": "^2.0.3"
